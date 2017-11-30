@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Computer Repair</title>
-    <meta charset="
+    <title>Computer Repair</title
+      <body>
+        <h1>Welcome!</h1>
+        <header class="container">
+          <li class = "nav"><a href ="index.html"> Home Page </a></li>
+          <li class = "nav"><a href ="about.html"> About Me </a></li>
+          <li class = "nav"><a href ="customer.html"> Customer Reviews </a></li>
+          <li class = "nav"><a href ="contact.html"> Contact </a></li>
+    <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="index.css"/>
   </head>
-  <body>
-    <nav>
-      <ul
-        <li class ="nav"><a href = "https://thatotherguy92.github.io/CSE-322/"> Home </a></li>
-        <li class ="nav"><a href = " "> About the Patriots </a></li>
-        <li class ="nav"><a href = " "> The Starters </a></li>
-        <li class ="nav"><a href = " "> About My Site </a></li>
-      </ul>
-    </nav>
-      <h2 style = "text-align:center"> Welcome to my website where I will be talking about my favorite NFL football team, the New England Patriots</h2>
-      <p> Follow any of the sites provided to learn more about my favorite team!
-      <img style = "img-align:left" src = "http://psychologyofsports.com/wp-content/uploads/2014/01/New_England_Patriots2.jpg" height="500" width="500">
-   </body>
+        <div class="computer">
+          <h2>Jordan's Computer Repair</h2>
+      </div>
+        </body>
 </html>
    
-        
- 
- 
+   
+   
+<script src="ajax.js"></script>
+<script src="parse-response.js"></script>
+
+  <p id ="footer">Enter the name of a city for weather information, then click "Submit" to submit the form:</p>
+  City: <input type="text" id="weather">
+  <button onclick="mainWeather()">Submit</button>
+  <div id="container"/>
+  
+<script>
+/* global ajax */
+/* global parseResponse */
+function mainWeather()
+{
+  var container = document.getElementById('container');
+  var url = "http://api.openweathermap.org/data/2.5/weather?q=";
+  var city = document.getElementById("weather").value;
+  document.getElementById("weather").value = '';
+  var apiKey = "804fe37b4446efe7769e01c1a9fec89f"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work  
+  url += city + "&appid=" + apiKey;
+  ajax(url, function(resp)
+  { 
+  resp = parseResponse(resp);
+  container.appendChild(document.createTextNode(resp));
+  });
+  container.removeChild(container.lastChild);
+}
+</script>
+
+<p id="footer">&copy; IEEE Accredited </p>
+  
